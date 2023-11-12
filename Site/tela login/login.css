@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;600;700&family=Merriweather:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* Centralizar os elementos da tela e definindo o background. */
+body {
+    background: url(casa_hobbit.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 350px;
+    background-color: rgba(0, 0, 0, 0.574);
+    border-radius: 20% 0;
+    box-shadow: 1px 2px 10px #000, 3px 6px 20px #000;
+    padding: 50px 20px;
+}
+
+.container-titulo {
+    font-size: 24px;
+    font-family: 'Cormorant Upright', serif;
+    color: antiquewhite;
+    text-align: center;
+    margin: 18px;
+}
+
+input {
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    border: 1px solid antiquewhite;
+    color: antiquewhite;
+}
+
+input:focus {
+    border-bottom: 2px solid #26a96a;
+    box-shadow: 0 1px 0 0 #26a96a;
+}
+
+.container-campo {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+label {
+    color: antiquewhite;
+    font-family: 'Merriweather', serif;
+}
+
+button {
+    padding: 15px 50px;
+    margin: 20px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: ease-in-out .25s;
+}
+
+button:hover {
+    background-color: #0a331fa1;
+}
+
+.container-botao {
+    text-align: center;
+
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition: ease-in-out .25s;
+}
+
+a:hover {
+    color: #26a96a;
+    border-bottom: 1px solid white;
+}
+
+
+/* Deixar o label com uma cor alternativa quando o input é selecionado. */
+/* input:focus + label {
+    color: #26a96a;
+} */
+
+
