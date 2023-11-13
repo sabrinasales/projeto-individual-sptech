@@ -7,12 +7,49 @@
     <title>Cadastro</title>
 </head>
 <body>
+    <div class="container-animacao">
+        <img class="container-gif" src="hobbit_caminhando.gif" alt="">
+    </div>
     <div class="container">
         <div class="container-imagem">
-            <img src="" alt="">
+            <img class="imagem-formulario" src="formulario_hobbit.png" alt="Casa Hobbit Iluminada">
         </div>
-        <div class="container-formulario">
-            
+        
+        <div class="formulario">
+            <h1 class="formulario-titulo">Cadastro</h1>
+            <div class="formulario-campo">
+                <label class="label" for="nome">Nome:</label> 
+                <input type="text" id="nome" placeholder="Insira o seu nome aqui.">
+            </div>
+    
+            <div class="formulario-campo">
+                <label class="label" for="sobrenome">Sobrenome:</label> 
+                <input type="text" id="sobrenome" placeholder="Insira o seu sobrenome.">
+            </div>
+
+            <div class="formulario-campo">
+                <label class="label" for="email">E-mail:</label> 
+                <input type="email" id="email" placeholder="Insira um e-mail válido">
+            </div>
+
+            <div class="formulario-campo">
+                <label class="label" for="telCelular">Telefone Celular (Opcional):</label> 
+                <input type="tel" id="telCelular" placeholder="Insira um telefone válido">
+            </div>
+
+            <div class="formulario-campo">
+                <label class="label" for="senha">Senha:</label> 
+                <input type="password" id="senha" placeholder="Insira sua senha aqui.">
+            </div>
+
+            <div class="formulario-campo">
+                <label class="label" for="sobrenome">Confirmar senha:</label> 
+                <input type="password" id="confirSenha" placeholder="Confirme sua senha.">
+            </div>
+
+            <div class="formulario-botao">
+                <button class="cadastrarUsuario" onclick="cadastrar()">Cadastrar</button>
+            </div>
         </div>
     </div>
 </body>

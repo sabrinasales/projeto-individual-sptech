@@ -10,17 +10,17 @@
     <div class="container">
         <h1 class="container-titulo">Login</h1>
         <div class="container-campo">
-            <label class="label" for="nome">E-mail:</label> 
-            <input type="text" id="email" placeholder="Insira o seu e-mail aqui">
+            <label class="label" for="email">E-mail:</label> 
+            <input type="text" onchange="validarCampo()" id="email" placeholder="Insira o seu e-mail aqui">
         </div>
 
         <div class="container-campo">
-            <label class="label" for="">Senha:</label> 
-            <input type="password" id="senha" placeholder="Insira a sua senha aqui">
+            <label class="label" for="senha">Senha:</label> 
+            <input type="password" onchange="validarCampo()" id="senha" placeholder="Insira a sua senha aqui">
         </div>
 
         <div class="container-botao">
-            <button onclick="logar()">Entrar</button>
+            <button disabled="true" onclick="logar()">Entrar</button>
         </div>
 
         <div class="container-links">
@@ -30,3 +30,9 @@
     </div>
 </body>
 </html>
+
+<script>
+    function validarCampo() {
+        
+    }
+</script>
