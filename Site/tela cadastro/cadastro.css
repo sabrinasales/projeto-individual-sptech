@@ -16,11 +16,13 @@ body {
     padding: 20px;
     height: 100vh;
     align-items: center;
+    overflow: hidden;
 }
 
 .container {
     display: flex;
     width: 700px;
+    height: 80vh;
 }
 
 .container-animacao {
@@ -35,7 +37,8 @@ body {
 }
 
 .container-imagem {
-    background-color: rgba(255, 255, 255, 0.5);
+    background: linear-gradient(68.15deg, #2f23252f 15.62%, #8e5d5228 85.61%);
+    backdrop-filter: blur(40px);
     width: 50%;
     display: flex;
     align-items: center;
