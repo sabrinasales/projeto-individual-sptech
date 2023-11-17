@@ -270,10 +270,12 @@ body {
     padding: 32px;
     border-top: 0.4px solid antiquewhite;
     font-family: 'Cormorant Upright', serif;
-    color: antiquewhite;
+    background-color: antiquewhite;
+    color: #2F2325;
     margin: auto;
     display: flex;
     justify-content: center;
+    border-radius: 80px 0 0;
 }
 
 footer {
@@ -295,23 +297,30 @@ h3 {
 
 .rodape-conteudo ul {
     text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .lista {
     padding: 0;
+    
 }
 
 .lista li {
-    width: auto;
+    width: 40px;
     text-align: center;
     list-style-type: none;
     padding: 7px;
     position: relative;
     transition: 1s;
+    background-color: #8E5D52;
+    border-radius: 15px;
+    
 }
 
 .lista li:hover {
-    border-bottom: 2px solid rgb(117, 117, 231);
+    background-color: rgba(117, 117, 231, 0.925);
 }
 
 .rodape-conteudo {
@@ -325,7 +334,7 @@ h3 {
 
 .rodape-conteudo p:hover {
     font-size: 23px;
-    color: rgb(117, 117, 231);
+    color: rgb(117, 117, 231, 0.925);
 }
 
 .conteudo-principal-terciario-titulo {
@@ -336,9 +345,13 @@ h3 {
     margin-bottom: 16px;
     position: static;
     border-bottom: 1px solid #fff;
+    transition: 1s;
 }
 
-
+.conteudo-principal-terciario-titulo:hover {
+    font-size: 25px;
+    color: rgba(117, 117, 231, 0.925);
+}
 
 .conteudo-principal-terciario {
     margin: 50px;
@@ -380,6 +393,12 @@ h3 {
     margin-bottom: 16px;
     position: static;
     border-bottom: 1px solid #fff;
+    transition: 1s;
+}
+
+.conteudo-principal-sobre-titulo:hover {
+    font-size: 25px;
+    color: rgb(117, 117, 231, 0.925);
 }
 
 .conteudo-principal-sobre-texto {
@@ -390,14 +409,76 @@ h3 {
     font-weight: 300;
     color: antiquewhite;
     font-size: 15px;
+    
 }
 
 .conteudo-principal-sobre img{
     border: 1px solid antiquewhite;
     box-shadow: 2px 2px 2px #000000;
     border-radius: 70px;
+
 }
 
+.conteudo-card-sobre {
+    margin-left: 48px;
+    text-align: center;
+    background-color: antiquewhite;
+    width: 450px;
+    border-radius: 70px;
+    padding: 48px;
+    border-bottom: 30px solid #8E5D52;
+    border-right: 30px solid #8E5D52;
+    
+}
+
+.card-titulo {
+    font-family: 'Cormorant Upright', serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #2F2325;
+    transition: 1s;
+    
+}
+
+.card-titulo:hover {
+    color: rgba(117, 117, 231, 0.925);
+    font-size: 25px;
+}
+
+.card-texto {
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    color: #2F2325;
+    font-size: 15px;
+    font-style: italic;
+    padding: 7px;
+    
+}
+
+.card-img {
+    padding: 10px;
+    width: 150px;
+}
+
+.card-icon {
+    position: absolute;
+    margin-left: 58px;
+}
+
+.sobre {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 48px;
+}
+
+.card-imagem-lado img {
+    height: 440px;
+    box-shadow: 2px 2px 2px #000000;
+    border-radius: 0 20px 70px;
+    margin-right: 38px;
+    opacity: 0.8;
+}
 
 
 
