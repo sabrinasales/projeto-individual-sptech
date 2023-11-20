@@ -68,7 +68,7 @@ body {
 
 .primeira-coluna {
     text-align: center;
-    flex: 1 0 auto;
+    width: 40%;
     z-index: 10;
 }
 
@@ -125,7 +125,7 @@ body {
 }
 
 .segunda-coluna {
-    flex: 2 0 auto;
+    width: 60%;
     font-weight: 800;
     display: flex;
     flex-direction: column;
@@ -141,7 +141,7 @@ body {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
 
-    left: 60%;
+    left: 0;
 }
 
 form {
@@ -156,6 +156,10 @@ label img {
     max-width: 25px;
     margin: 2px;
     padding: 2px;
+}
+
+label:checked {
+    background-color: #b96d5c;
 }
 
 form input {
@@ -179,7 +183,8 @@ input {
 }
 
 .primeiro-conteudo {
-    display: none;
+    display: flex;
+    /* display: none; */
 }
 
 .segundo-conteudo {
@@ -189,10 +194,12 @@ input {
 
 .segundo-conteudo .primeira-coluna {
     order: 2;
+    z-index: -1;
 }
 
 .segundo-conteudo .segunda-coluna {
     order: 1;
+    z-index: -1;
 }
 
 .segundo-conteudo .primeira-coluna .formulario-descricao {
@@ -201,6 +208,42 @@ input {
 
 .segundo-conteudo .segunda-coluna .formulario-descricao {
     color: grey;
+}
+
+.formulario-descricao-primeiro {
+    color: #fff;
+}
+
+.primeiro-conteudo .segunda-coluna {
+    z-index: 11;
+}
+
+
+/* Alternando entre LOGIN - CADASTRO */
+/* Quando clicado o botão "Entrar", vai ser jogada uma class no body, quando isso acontecer, o primeiro conteúdo do container some. */
+.entrar-js .primeiro-conteudo .primeira-coluna, .entrar-js .primeiro-conteudo .segunda-coluna {
+    z-index: -1;
+}
+
+.entrar-js .segundo-conteudo .primeira-coluna, .entrar-js .segundo-conteudo .segunda-coluna {
+    z-index: 11;;
+}
+
+.entrar-js .conteudo::before {
+    left: 60%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+}
+
+.cadastrar-js .segundo-conteudo .primeira-coluna, .cadastrar-js .segundo-conteudo .segunda-coluna {
+    z-index: -1;
+}
+
+.cadastrar-js .primeiro-conteudo .primeira-coluna, .cadastrar-js .primeiro-conteudo .segunda-coluna {
+    z-index: 11;
 }
 
 /* Footer */
@@ -273,3 +316,4 @@ footer h3 {
     font-size: 23px;
     color: rgb(117, 117, 231, 0.925);
 }
+
