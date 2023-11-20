@@ -112,12 +112,7 @@ body {
     font-size: 20px;
     padding: 10px 22px;
     border-bottom: 1px solid #fff;
-    transition: 1s;
-}
-
-.cabecalho-menu-item:checked {
-    background-color: #fff;
-    border-radius: 10px;
+    transition: 0.5s;
 }
 
 .cabecalho-menu-item:hover {
@@ -268,7 +263,6 @@ body {
 /* Footer */
 .rodape {
     padding: 32px;
-    border-top: 0.4px solid antiquewhite;
     font-family: 'Cormorant Upright', serif;
     background-color: antiquewhite;
     color: #2F2325;
@@ -446,8 +440,10 @@ h3 {
 }
 
 .card-texto {
-    font-family: 'Merriweather', serif;
+    font-family: 'Cormorant Upright', serif;
     font-weight: 300;
+    background-color: antiquewhite;
+    border-radius: 0 0 10px;
     color: #2F2325;
     font-size: 15px;
     font-style: italic;
@@ -480,8 +476,67 @@ h3 {
     opacity: 0.8;
 }
 
+.conteudo-principal-quartenario {
+    margin: 50px 0;
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    background-color: antiquewhite;
+    box-shadow: 2px 2px 2px #000000;
+}
 
 
+.conteudo-principal-quartenario-titulo {
+    font-family: 'Cormorant Upright', serif;
+    font-weight: 500;
+    color: #2F2325;
+    font-size: 24px;
+    margin-bottom: 16px;
+    position: static;
+    border-bottom: 1px solid #fff;
+    transition: 1s;
+}
 
+.conteudo-principal-quartenario-titulo:hover {
+    font-size: 25px;
+    color: rgb(117, 117, 231, 0.925);
+}
 
+.conteudo-principal-quartenario-texto {
+    text-align: center;
+    width: 500px;
+    padding: 48px;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    color: #2F2325;
+    font-size: 15px;
+}
 
+.imagem-fundadores {
+    border: 1px solid antiquewhite;
+    box-shadow: 2px 2px 2px #000000;
+    border-radius: 70px;
+}
+
+.conteudo-principal-quartenario-texto a {
+    color: #2F2325;
+    background-color: antiquewhite;
+    border-bottom: 1px solid rgba(117, 117, 231, 0.925);
+    transition: 1s;
+}
+
+.imagem-lado-quartenario {
+    display: flex;
+    position: absolute;
+    margin-top: 270px;
+    margin-right: -50px
+
+}
+
+.conteudo-principal-quartenario-texto a:hover {
+    background-color: rgba(117, 117, 231, 0.925);
+    color: antiquewhite;
+    border-radius: 20px;
+    padding: 9px;
+}

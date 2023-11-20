@@ -1,6 +1,7 @@
+/* Importar a fonte a ser usada */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;600;700&family=Merriweather:wght@300&display=swap');
-
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -9,96 +10,269 @@
 }
 
 body {
-    background: url(montanha_solitaria.png);
-    background-size: cover;
+    background: linear-gradient(68.15deg, #415379 15.62%, #b96d5c 85.61%);
+    font-family: 'Merriweather', serif;
+    font-size: 13px;
+}
+
+/* Header */
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 24px;
+    background: linear-gradient(68.15deg, #2F2325 15.62%, #8E5D52 85.61%);
+}
+
+.cabecalho-menu {
+    display: flex;
+    gap: 32px;
+}
+
+.cabecalho-menu-item {
+    font-family: 'Cormorant Upright', serif;
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 10px 22px;
+    border-bottom: 1px solid #fff;
+    transition: 0.5s;
+}
+
+.cabecalho-menu-item:hover {
+    background-color: #fff;
+    color: #2F2325;
+    border-radius: 15px;
+}
+
+/* Main */
+.formulario-container {
     display: flex;
     justify-content: center;
-    padding: 20px;
-    height: 100vh;
     align-items: center;
-    overflow: hidden;
+    height: 120vh;
 }
 
-.container {
+.conteudo {
+    background-color: #fff;
+    border-radius: 15px;
+    width: 960px;
+    height: 60%;
     display: flex;
-    width: 700px;
-    height: 80vh;
-}
-
-.container-animacao {
-    align-items: end;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-}
-
-.container-gif {
-    width: 400px;
-}
-
-.container-imagem {
-    background: linear-gradient(68.15deg, #2f23252f 15.62%, #8e5d5228 85.61%);
-    backdrop-filter: blur(40px);
-    width: 50%;
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    border-radius: 20px 0 0 20px;
+    position: relative;
+    
 }
 
-.container-imagem .imagem-formulario {
+.primeira-coluna {
+    text-align: center;
+    flex: 1 0 auto;
+    z-index: 10;
+}
+
+.formulario-btn {
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 10px;
+    padding: 10px 50px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 150px;
+    align-self: center;
+    border-width: 0;
+}
+
+.btn-primeiro {
+    background: transparent;
+    border: 1px solid #fff;
+    transition: 0.5s;
+}
+
+.btn-segundo {
+    color: #fff;
+    background-color: #8E5D52;
+    transition: 0.5s;
+}
+
+.btn-segundo:hover {
+    color: #fff;
+    background-color: rgba(117, 117, 231, 0.925);
+    border: 1px solid #2F2325;
+}
+
+.btn-primeiro:hover {
+    background-color: #fff;
+    color: #8E5D52;
+}
+
+.formulario-descricao-primeiro {
+    color: antiquewhite;
+}
+
+.formulario-titulo-primeiro {
+    color: #fff;
+}
+
+.formulario-titulo-segundo {
+    color: #2F2325;
+}
+
+.formulario-descricao-segundo {
+    color: grey
+}
+
+.segunda-coluna {
+    flex: 2 0 auto;
+    font-weight: 800;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.conteudo::before {
+    content: "";
+    position: absolute;
+    background-color: #8E5D52;
+    width: 40%;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    left: 60%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    align-items: center;
+    justify-content: center;
+}
+
+label img {
+    max-width: 25px;
+    margin: 2px;
+    padding: 2px;
+}
+
+form input {
+    height: 45px;
+    border: none;
+    background: transparent;
     width: 100%;
 }
 
-.formulario {
-    background: linear-gradient(68.15deg, #2f23252f 15.62%, #8e5d5228 85.61%);
-    backdrop-filter: blur(40px);
-    padding: 50px 50px;
-    width: 50%;
-    border-radius: 0 20px 20px 0;
-}
-
-.formulario-titulo {
-    font-family: 'Cormorant Upright', serif;
-    color: antiquewhite;
-    margin-bottom: 15px;
+.label-input {
+    width: 250px;
+    background-color: #b96d5c;
     display: flex;
-    justify-content: center;
-}
-
-.formulario .formulario-campo {
-    margin-bottom: 15px;
-}
-
-label {
-    color: antiquewhite;
-    font-weight: 400;
-    font-family: 'Merriweather', serif;
-    display: block;
-    margin-bottom: 5px;
+    align-items: center;
+    margin: 7px;
+    border-radius: 20px;
 }
 
 input {
+    color: #fff;
+}
+
+.primeiro-conteudo {
+    display: none;
+}
+
+.segundo-conteudo {
+    position: absolute;
+    display: flex;
+}
+
+.segundo-conteudo .primeira-coluna {
+    order: 2;
+}
+
+.segundo-conteudo .segunda-coluna {
+    order: 1;
+}
+
+.segundo-conteudo .primeira-coluna .formulario-descricao {
+    color: #fff;
+}
+
+.segundo-conteudo .segunda-coluna .formulario-descricao {
+    color: grey;
+}
+
+/* Footer */
+.rodape {
+    padding: 32px;
+    font-family: 'Cormorant Upright', serif;
+    background-color: antiquewhite;
+    color: #2F2325;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 80px 0 0;
+}
+
+footer {
     width: 100%;
-    height: 40px;
-    background: transparent;
-    border: none;
-    border: 1px solid antiquewhite;
-    color: antiquewhite;
+    height: 33.3%;
+    justify-content: space-between;
+    bottom: 0;
 }
 
-button {
-    padding: 15px 50px;
-    margin: 20px;
-    background: transparent;
-    border: 2px solid white;
-    color: white;
-    text-transform: uppercase;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: ease-in-out .25s;
+footer h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
-button:hover {
-    background-color: #0a331fa1;
+.rodape-conteudo .rodape-logo {
+    width: 200px;
+    margin: auto;
+    padding: 7px;
 }
+
+.rodape-conteudo ul {
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.lista {
+    padding: 0;
+}
+
+.lista li {
+    width: 40px;
+    text-align: center;
+    list-style-type: none;
+    padding: 7px;
+    position: relative;
+    transition: 1s;
+    background-color: #8E5D52;
+    border-radius: 15px;   
+}
+
+.lista li:hover {
+    background-color: rgba(117, 117, 231, 0.925);
+}
+
+.rodape-conteudo {
+    margin: 0 35px;
+}
+
+.rodape-conteudo p {
+    font-size: 20px;
+    transition: 3s;
+}
+
+.rodape-conteudo p:hover {
+    font-size: 23px;
+    color: rgb(117, 117, 231, 0.925);
+}
+
+
+
