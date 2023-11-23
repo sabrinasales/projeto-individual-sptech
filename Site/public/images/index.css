@@ -1,0 +1,542 @@
+/* Importar a fonte a ser usada */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;600;700&family=Merriweather:wght@300&display=swap');
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.carrossel {
+    height: 520px;
+    width: 915px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.conteudo .carrossel {
+    height: 100vh;
+    width: 100vw;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+}
+
+#slide1:checked ~ .s1 {
+    margin-left: 0;
+
+}
+
+#slide2:checked ~ .s1 {
+    margin-left: -20%;
+}
+
+#slide3:checked ~ .s1 {
+    margin-left: -40%;
+}
+
+#slide4:checked ~ .s1 {
+    margin-left: -60%;
+}
+
+#slide5:checked ~ .s1 {
+    margin-left: -80%;
+}
+
+.navigation {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+}
+
+.bar {
+    width: 70px;
+    height: 17px;
+    border: 2px solid white;
+    margin: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+input {
+    display: none;
+}
+
+.slides {
+    display: flex;
+    width: 500%;
+    height: 100%;
+}
+
+.slide {
+    width: 20%;
+    transition: .6s;
+}
+
+.bar:hover {
+    background-color: white;
+}
+
+body {
+    font-size: 100%;
+    background: linear-gradient(68.15deg, #2F2325 15.62%, #8E5D52 85.61%);
+}
+
+
+/* Header */
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 24px;
+}
+
+.cabecalho-menu {
+    display: flex;
+    gap: 32px;
+}
+
+.cabecalho-menu-item {
+    font-family: 'Cormorant Upright', serif;
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 10px 22px;
+    border-bottom: 1px solid #fff;
+    transition: 0.5s;
+}
+
+.cabecalho-menu-item:hover {
+    background-color: #fff;
+    color: #2F2325;
+    border-radius: 15px;
+}
+
+/* Main */
+.conteudo {
+    margin-bottom: 50px;
+    border-top: 0.4px solid antiquewhite;
+}
+
+.conteudo-principal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.banner {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.banner-titulo {
+    font-family: 'Cormorant Upright', serif;
+    font-weight: 400;
+    font-size: 60px;
+    color: antiquewhite;
+}
+
+
+
+.banner-subtitulo {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: pink;
+}
+
+.banner-botao {
+    background-color: antiquewhite;
+    width: 180px;
+    height: 60px;
+    border: none;
+    box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-family: 'Cormorant Upright', serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #2F2325;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.banner-botao:hover {
+    background-color: rgba(236, 214, 196, 0.53);
+}
+
+.banner-botao a {
+    color: #2F2325;
+
+}
+
+.conteudo-principal-imagem {
+    height: 430px;
+    padding: 30px;
+}
+
+.conteudo-principal-secundario .banner2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.banner2-titulo {
+    border-top: 0.4px solid antiquewhite;
+    padding-top: 48px;
+    font-family: 'Cormorant Upright', serif;
+    font-weight: 500;
+    color: antiquewhite;
+    font-size: 24px;
+    margin-bottom: 16px;
+    
+}
+
+.conteudo-principal-secundario-paragrafo {
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: white;
+
+}
+
+.conteudo-principal-secundario-sobre-titulo {
+    font-family: 'Cormorant Upright', serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: antiquewhite;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 2vh;
+    padding: 0 2vh;
+    margin: 50px;
+}
+
+.galeria-card {
+    width: 240px;
+    height: 150px;
+    border: 1px solid antiquewhite;
+    box-shadow: 2px 2px 2px #000000;
+}
+
+.galeria-card:hover {
+    width: 280px;
+    height: 170px;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.card-texto {
+    font-family: 'Cormorant Upright', serif;
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.galeria-card img {
+    width: 100%;
+    height: 100%;
+
+}
+
+/* Footer */
+.rodape {
+    padding: 32px;
+    font-family: 'Cormorant Upright', serif;
+    background-color: antiquewhite;
+    color: #2F2325;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 80px 0 0;
+}
+
+footer {
+    height: 33.3%;
+    justify-content: space-between;
+}
+
+h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.rodape-conteudo .rodape-logo {
+    width: 200px;
+    margin: auto;
+    padding: 7px;
+}
+
+.rodape-conteudo ul {
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.lista {
+    padding: 0;
+    
+}
+
+.lista li {
+    width: 40px;
+    text-align: center;
+    list-style-type: none;
+    padding: 7px;
+    position: relative;
+    transition: 1s;
+    background-color: #8E5D52;
+    border-radius: 15px;
+    
+}
+
+.lista li:hover {
+    background-color: rgba(117, 117, 231, 0.925);
+}
+
+.rodape-conteudo {
+    margin: 0 35px;
+}
+
+.rodape-conteudo p {
+    font-size: 20px;
+    transition: 3s;
+}
+
+.rodape-conteudo p:hover {
+    font-size: 23px;
+    color: rgb(117, 117, 231, 0.925);
+}
+
+.conteudo-principal-terciario-titulo {
+    font-family: 'Cormorant Upright', serif;
+    font-weight: 500;
+    color: antiquewhite;
+    font-size: 24px;
+    margin-bottom: 16px;
+    position: static;
+    border-bottom: 1px solid #fff;
+    transition: 1s;
+}
+
+.conteudo-principal-terciario-titulo:hover {
+    font-size: 25px;
+    color: rgba(117, 117, 231, 0.925);
+}
+
+.conteudo-principal-terciario {
+    margin: 50px;
+    padding: 48px;
+    display: flex;
+    align-items: center;
+}
+
+.conteudo-principal-terciario-texto {
+    text-align: center;
+    width: 500px;
+    padding: 48px;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    color: antiquewhite;
+    font-size: 15px;
+    
+}
+
+.conteudo-principal-terciario img {
+    border: 1px solid antiquewhite;
+    box-shadow: 2px 2px 2px #000000;
+    border-radius: 70px;
+}
+
+.conteudo-principal-sobre {
+    margin: 50px;
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.conteudo-principal-sobre-titulo {
+    font-family: 'Cormorant Upright', serif;
+    font-weight: 500;
+    color: antiquewhite;
+    font-size: 24px;
+    margin-bottom: 16px;
+    position: static;
+    border-bottom: 1px solid #fff;
+    transition: 1s;
+}
+
+.conteudo-principal-sobre-titulo:hover {
+    font-size: 25px;
+    color: rgb(117, 117, 231, 0.925);
+}
+
+.conteudo-principal-sobre-texto {
+    text-align: center;
+    width: 500px;
+    padding: 48px;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    color: antiquewhite;
+    font-size: 15px;
+    
+}
+
+.conteudo-principal-sobre img{
+    border: 1px solid antiquewhite;
+    box-shadow: 2px 2px 2px #000000;
+    border-radius: 70px;
+
+}
+
+.conteudo-card-sobre {
+    margin-left: 48px;
+    text-align: center;
+    background-color: antiquewhite;
+    width: 450px;
+    border-radius: 70px;
+    padding: 48px;
+    border-bottom: 30px solid #8E5D52;
+    border-right: 30px solid #8E5D52;
+    
+}
+
+.card-titulo {
+    font-family: 'Cormorant Upright', serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #2F2325;
+    transition: 1s;
+    
+}
+
+.card-titulo:hover {
+    color: rgba(117, 117, 231, 0.925);
+    font-size: 25px;
+}
+
+.card-texto {
+    font-family: 'Cormorant Upright', serif;
+    font-weight: 300;
+    background-color: antiquewhite;
+    border-radius: 0 0 10px;
+    color: #2F2325;
+    font-size: 15px;
+    font-style: italic;
+    padding: 7px;
+    
+}
+
+.card-img {
+    padding: 10px;
+    width: 150px;
+}
+
+.card-icon {
+    position: absolute;
+    margin-left: 58px;
+}
+
+.sobre {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 48px;
+}
+
+.card-imagem-lado img {
+    height: 440px;
+    box-shadow: 2px 2px 2px #000000;
+    border-radius: 0 20px 70px;
+    margin-right: 38px;
+    opacity: 0.8;
+}
+
+.conteudo-principal-quartenario {
+    margin: 50px 0;
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    background-color: antiquewhite;
+    box-shadow: 2px 2px 2px #000000;
+}
+
+
+.conteudo-principal-quartenario-titulo {
+    font-family: 'Cormorant Upright', serif;
+    font-weight: 500;
+    color: #2F2325;
+    font-size: 24px;
+    margin-bottom: 16px;
+    position: static;
+    border-bottom: 1px solid #fff;
+    transition: 1s;
+}
+
+.conteudo-principal-quartenario-titulo:hover {
+    font-size: 25px;
+    color: rgb(117, 117, 231, 0.925);
+}
+
+.conteudo-principal-quartenario-texto {
+    text-align: center;
+    width: 500px;
+    padding: 48px;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    color: #2F2325;
+    font-size: 15px;
+}
+
+.imagem-fundadores {
+    border: 1px solid antiquewhite;
+    box-shadow: 2px 2px 2px #000000;
+    border-radius: 70px;
+}
+
+.conteudo-principal-quartenario-texto a {
+    color: #2F2325;
+    background-color: antiquewhite;
+    border-bottom: 1px solid rgba(117, 117, 231, 0.925);
+    transition: 1s;
+}
+
+.imagem-lado-quartenario {
+    display: flex;
+    position: absolute;
+    margin-top: 270px;
+    margin-right: -50px
+
+}
+
+.conteudo-principal-quartenario-texto a:hover {
+    background-color: rgba(117, 117, 231, 0.925);
+    color: antiquewhite;
+    border-radius: 20px;
+    padding: 9px;
+}

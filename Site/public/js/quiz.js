@@ -24,6 +24,7 @@ function comecarJogo() {
 function displayProxPergunta() {
     resetarEstado()
 
+
     perguntaTexto.textContent = perguntasQuiz[atualPerguntaIndex].pergunta
     perguntasQuiz[atualPerguntaIndex].opcoes.forEach(opcoes => {
         const novasRespostas = document.createElement("button")

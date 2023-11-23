@@ -156,6 +156,7 @@ body {
 /* Footer */
 .rodape {
     padding: 32px;
+    padding-bottom: 90px;
     font-family: 'Cormorant Upright', serif;
     background-color: antiquewhite;
     color: #2F2325;
