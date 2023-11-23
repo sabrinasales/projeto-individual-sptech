@@ -26,7 +26,7 @@
                     <h2 class="formulario-titulo-primeiro">Bem vindo de volta!</h2>
                     <p class="formulario-descricao-primeiro">Já é cadastrado?</p>
                     <p class="formulario-descricao-primeiro">Faça login com seu e-mail e senha! É rápido!</p>
-                    <button id="signin" class="formulario-btn btn-primeiro">Entrar</button>
+                    <button id="signin" onclick="signin()" class="formulario-btn btn-primeiro">Entrar</button>
                 </div>
 
                 <div class="segunda-coluna">
@@ -63,11 +63,11 @@
                     <p class="formulario-descricao">Insira seus dados:</p>
                     <form id="formulario-login">
 
-                        <label class="label-input" for=""><img class="icon-label" src="./images/envelope-dark.png" width="30px" alt="Email Icon"><input type="text" placeholder="E-mail" class="formulario-campo"></label>
+                        <label class="label-input" for=""><img class="icon-label" src="./images/envelope-dark.png" width="30px" alt="Email Icon"><input id="email_input" type="text" placeholder="E-mail" class="formulario-campo"></label>
 
-                        <label class="label-input" for=""><img class="icon-label" src="./images/cadeado.png" width="30px" alt="Secret Icon"><input type="password" placeholder="Senha" class="formulario-campo"></label>
+                        <label class="label-input" for=""><img class="icon-label" src="./images/cadeado.png" width="30px" alt="Secret Icon"><input id="senha_input" type="password" placeholder="Senha" class="formulario-campo"></label>
                         
-                        <button class="formulario-btn btn-segundo">Entrar</button>
+                        <button onclick="entrar()" class="formulario-btn btn-segundo">Entrar</button>
                     </form>
                 </div>
             </div>
@@ -96,3 +96,68 @@
     <script src="./js/cadastro.js" async></script>
 </body>
 </html>
+
+<script>
+
+
+function entrar() {
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            alert("Um dos campos vazio");
+            return false;
+        }
+        else {
+            setInterval(5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                    setTimeout(function () {
+                        window.location = "./quiz.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+</script>

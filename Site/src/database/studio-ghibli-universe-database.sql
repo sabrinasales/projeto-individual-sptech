@@ -15,3 +15,6 @@ senha varchar(55)
 select * from Usuario;
 describe Usuario;
 
+insert into Usuario values
+(null, 'Sabrina', 'sabrina@admin.com', 'senha123');
+
