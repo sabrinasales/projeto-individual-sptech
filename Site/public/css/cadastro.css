@@ -195,24 +195,6 @@ input {
     display: flex;
 }
 
-.segundo-conteudo .primeira-coluna {
-    order: 2;
-    z-index: -1;
-}
-
-.segundo-conteudo .segunda-coluna {
-    order: 1;
-    z-index: -1;
-}
-
-.segundo-conteudo .primeira-coluna .formulario-descricao {
-    color: #fff;
-}
-
-.segundo-conteudo .segunda-coluna .formulario-descricao {
-    color: grey;
-}
-
 .formulario-descricao-primeiro {
     color: #fff;
 }
@@ -221,32 +203,8 @@ input {
     z-index: 11;
 }
 
-
-/* Alternando entre LOGIN - CADASTRO */
-/* Quando clicado o botão "Entrar", vai ser jogada uma class no body, quando isso acontecer, o primeiro conteúdo do container some. */
-.entrar-js .primeiro-conteudo .primeira-coluna, .entrar-js .primeiro-conteudo .segunda-coluna {
-    z-index: -1;
-}
-
-.entrar-js .segundo-conteudo .primeira-coluna, .entrar-js .segundo-conteudo .segunda-coluna {
-    z-index: 11;;
-}
-
-.entrar-js .conteudo::before {
-    left: 60%;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-
-}
-
-.cadastrar-js .segundo-conteudo .primeira-coluna, .cadastrar-js .segundo-conteudo .segunda-coluna {
-    z-index: -1;
-}
-
-.cadastrar-js .primeiro-conteudo .primeira-coluna, .cadastrar-js .primeiro-conteudo .segunda-coluna {
-    z-index: 11;
+.formulario-campo::placeholder {
+    color: #ffffffb2;
 }
 
 /* Footer */

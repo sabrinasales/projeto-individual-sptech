@@ -3,52 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link rel="stylesheet" type="text/css" href="./css/cadastro.css" </head>
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
+    <!-- Header -->
     <header class="cabecalho">
         <img class="logotipo-cabecalho" src="./images/logo_totoro_ghibli.png" alt="Logo do projeto aqui" width="100px">
         <nav class="cabecalho-menu">
             <a href="./index.html" class="cabecalho-menu-item">Home</a>
             <!-- <a href="" class="cabecalho-menu-item">Sobre</a>
             <a href="" class="cabecalho-menu-item">Blog - Jornal</a> -->
-            <a href="" class="cabecalho-menu-item">Login</a>
+            <a href="" class="cabecalho-menu-item">Cadastro</a>
         </nav>
     </header>
-    
+    <!-- Fim do Header -->
+
     <main>
         <div class="formulario-container">
-            <div class="conteudo primeiro-conteudo">
+        <div class="conteudo segundo-conteudo">
                 <div class="primeira-coluna">
-                    <h2 class="formulario-titulo-primeiro">Bem vindo de volta!</h2>
-                    <p class="formulario-descricao-primeiro">Já é cadastrado?</p>
-                    <p class="formulario-descricao-primeiro">Faça login com seu e-mail e senha! É rápido!</p>
-                    <button id="signin" onclick="window.location.href='./login.html'" class="formulario-btn btn-primeiro">Entrar</button>
+                    <h2 class="formulario-titulo-primeiro">Olá amigo!</h2>
+                    <p class="formulario-descricao">Ainda não é cadastrado?</p>
+                    <button id="signup" onclick="window.location.href='./cadastro.html'" class="formulario-btn btn-primeiro">Cadastre-se</button>
                 </div>
 
                 <div class="segunda-coluna">
-                    <h2 class="formulario-titulo-segundo">Criar Conta</h2>
+                    <h2 class="formulario-titulo-segundo">Já sou membro!</h2>
                     <div class="formulario-imagem">
                         <img class="user-totoro" width="150px" src="./images/totoro-icon.gif" alt="">
                     </div>
-                    <p class="formulario-descricao-segundo">Insira seus dados abaixo para o registro.</p>
-                    <form id="formulario-cadastro">
+                    <p class="formulario-descricao">Insira seus dados:</p>
+                    <form id="formulario-login">
 
-                        <label class="label-input" for=""><img class="icon-label" src="./images/user-icon.png" width="30px" alt="User Icon"><input type="text" placeholder="Nome" class="formulario-campo" required></label>
+                        <label class="label-input" for=""><img class="icon-label" src="./images/envelope-dark.png" width="30px" alt="Email Icon"><input type="text" placeholder="E-mail" class="formulario-campo"></label>
+
+                        <label class="label-input" for=""><img class="icon-label" src="./images/cadeado.png" width="30px" alt="Secret Icon"><input type="password" placeholder="Senha" class="formulario-campo"></label>
                         
-                        <label class="label-input" for=""><img class="icon-label" src="./images/envelope-dark.png" width="30px" alt="Email Icon"><input type="text" placeholder="E-mail" class="formulario-campo" required></label>
-
-                        <label class="label-input" for=""><img class="icon-label" src="./images/cadeado.png" width="30px" alt="Secret Icon"><input type="password" placeholder="Senha" class="formulario-campo" required></label>
-
-                        <button class="formulario-btn btn-segundo">Cadastrar</button>
+                        <button class="formulario-btn btn-segundo">Entrar</button>
                     </form>
                 </div>
             </div>
         </div>
     </main>
-    
-    <footer>
+
+<!-- Footer -->
+<footer>
         <div class="rodape">
             <div class="rodape-conteudo">
                 <img class="rodape-logo" src="./images/logo_totoro_ghibli.png" alt="Totoro Logotipo" width="200px">
@@ -67,6 +67,6 @@
             </div>
         </div>
     </footer>
-    <!-- <script src="./js/cadastro.js" async></script> -->
+
 </body>
 </html>
