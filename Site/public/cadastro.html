@@ -35,13 +35,13 @@
                     <p class="formulario-descricao-segundo">Insira seus dados abaixo para o registro.</p>
                     <form id="formulario-cadastro">
 
-                        <label class="label-input" for=""><img class="icon-label" src="./images/user-icon.png" width="30px" alt="User Icon"><input type="text" placeholder="Nome" class="formulario-campo" required></label>
+                        <label class="label-input" for=""><img class="icon-label" src="./images/user-icon.png" width="30px" alt="User Icon"><input type="text" placeholder="Nome" class="formulario-campo" minlength="3" required></label>
                         
-                        <label class="label-input" for=""><img class="icon-label" src="./images/envelope-dark.png" width="30px" alt="Email Icon"><input type="text" placeholder="E-mail" class="formulario-campo" required></label>
+                        <label class="label-input" for=""><img class="icon-label" src="./images/envelope-dark.png" width="30px" alt="Email Icon"><input type="email" placeholder="E-mail" class="formulario-campo" minlength="8" maxlength="55" required></label>
 
-                        <label class="label-input" for=""><img class="icon-label" src="./images/cadeado.png" width="30px" alt="Secret Icon"><input type="password" placeholder="Senha" class="formulario-campo" required></label>
+                        <label class="label-input" for=""><img class="icon-label" src="./images/cadeado.png" width="30px" alt="Secret Icon"><input type="password" placeholder="Senha" class="formulario-campo" minlength="8" maxlength="55" required></label>
 
-                        <button class="formulario-btn btn-segundo">Cadastrar</button>
+                        <button type="submit" class="formulario-btn btn-segundo">Cadastrar</button>
                     </form>
                 </div>
             </div>
