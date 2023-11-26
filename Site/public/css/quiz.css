@@ -144,10 +144,10 @@ body {
     font-family: 'Cormorant Upright', serif;
     background-color: antiquewhite;
     color: #2F2325;
-    margin: auto;
     display: flex;
     justify-content: center;
     border-radius: 80px 0 0;
+    margin-bottom: 0;
 }
 
 footer {
@@ -156,6 +156,7 @@ footer {
     justify-content: space-between;
     bottom: 0;
     position: relative;
+    margin-bottom: 0;
 }
 
 footer h3 {

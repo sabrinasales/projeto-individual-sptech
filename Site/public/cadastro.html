@@ -13,7 +13,7 @@
             <a href="./index.html" class="cabecalho-menu-item">Home</a>
             <!-- <a href="" class="cabecalho-menu-item">Sobre</a>
             <a href="" class="cabecalho-menu-item">Blog - Jornal</a> -->
-            <a href="" class="cabecalho-menu-item">Login</a>
+            <a href="./login.html" class="cabecalho-menu-item">Login</a>
         </nav>
     </header>
     
@@ -33,13 +33,13 @@
                         <img class="user-totoro" width="150px" src="./images/totoro-icon.gif" alt="">
                     </div>
                     <p class="formulario-descricao-segundo">Insira seus dados abaixo para o registro.</p>
-                    <form id="formulario-cadastro">
+                    <form id="formulario-cadastro" onsubmit="cadastrar()">
 
-                        <label class="label-input" for=""><img class="icon-label" src="./images/user-icon.png" width="30px" alt="User Icon"><input type="text" placeholder="Nome" class="formulario-campo" minlength="3" required></label>
+                        <label class="label-input" for=""><img class="icon-label" src="./images/user-icon.png" width="30px" alt="User Icon"><input type="text" placeholder="Nome" class="formulario-campo" id="nome_input" minlength="3" required></label>
                         
-                        <label class="label-input" for=""><img class="icon-label" src="./images/envelope-dark.png" width="30px" alt="Email Icon"><input type="email" placeholder="E-mail" class="formulario-campo" minlength="8" maxlength="55" required></label>
+                        <label class="label-input" for=""><img class="icon-label" src="./images/envelope-dark.png" width="30px" alt="Email Icon"><input type="email" placeholder="E-mail" class="formulario-campo" id="email_input" minlength="8" maxlength="55" required></label>
 
-                        <label class="label-input" for=""><img class="icon-label" src="./images/cadeado.png" width="30px" alt="Secret Icon"><input type="password" placeholder="Senha" class="formulario-campo" minlength="8" maxlength="55" required></label>
+                        <label class="label-input" for=""><img class="icon-label" src="./images/cadeado.png" width="30px" alt="Secret Icon"><input type="password" placeholder="Senha" class="formulario-campo" id="senha_input" minlength="8" maxlength="55" required></label>
 
                         <button type="submit" class="formulario-btn btn-segundo">Cadastrar</button>
                     </form>
@@ -70,3 +70,65 @@
     <!-- <script src="./js/cadastro.js" async></script> -->
 </body>
 </html>
+
+<script>
+
+    function cadastrar() {
+        // Previne que o padrão(reset) aconteça.
+        event.preventDefault()
+
+            var nomeVar = nome_input.value;
+            var emailVar = email_input.value;
+            var senhaVar = senha_input.value;
+
+            console.log(emailVar);
+            console.log(senhaVar);
+    
+            if (emailVar == "" || senhaVar == "" || nomeVar == "") {
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+                return false;
+            }
+    
+    
+            console.log("FORM LOGIN: ", emailVar);
+            console.log("FORM SENHA: ", senhaVar);
+
+    
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: emailVar,
+                    senha: senhaVar,
+                    nome: nomeVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+    
+                if (resposta.ok) {
+                    
+                        setTimeout(function () {
+                            window.location.href = "./login.html";
+                        }, 1000); // apenas para exibir o loading
+    
+    
+                } else {
+    
+                    console.log("Houve um erro ao tentar realizar o login!");
+    
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                    });
+                }
+    
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+    
+            return false;
+        }
+        
+    </script>

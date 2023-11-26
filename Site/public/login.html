@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="./css/login.css">
+    
 </head>
 <body>
     <!-- Header -->
@@ -14,7 +15,7 @@
             <a href="./index.html" class="cabecalho-menu-item">Home</a>
             <!-- <a href="" class="cabecalho-menu-item">Sobre</a>
             <a href="" class="cabecalho-menu-item">Blog - Jornal</a> -->
-            <a href="" class="cabecalho-menu-item">Cadastro</a>
+            <a href="./cadastro.html" class="cabecalho-menu-item">Cadastro</a>
         </nav>
     </header>
     <!-- Fim do Header -->
@@ -34,13 +35,13 @@
                         <img class="user-totoro" width="150px" src="./images/totoro-icon.gif" alt="">
                     </div>
                     <p class="formulario-descricao">Insira seus dados:</p>
-                    <form id="formulario-login">
+                    <form id="formulario-login" onsubmit="entrar()">
 
-                        <label class="label-input" for=""><img class="icon-label" src="./images/envelope-dark.png" width="30px" alt="Email Icon"><input type="email" placeholder="E-mail" class="formulario-campo" minlength="8" maxlength="55" required></label>
+                        <label class="label-input" for=""><img class="icon-label" src="./images/envelope-dark.png" width="30px" alt="Email Icon"><input type="email" id="email_input" placeholder="E-mail" class="formulario-campo" minlength="8" maxlength="55" required></label>
 
-                        <label class="label-input" for=""><img class="icon-label" src="./images/cadeado.png" width="30px" alt="Secret Icon"><input type="password" placeholder="Senha" class="formulario-campo" minlength="8" maxlength="55" required></label>
+                        <label class="label-input" for=""><img class="icon-label" src="./images/cadeado.png" width="30px" alt="Secret Icon"><input type="password" id="senha_input" placeholder="Senha" class="formulario-campo" minlength="8" maxlength="55" required></label>
                         
-                        <button type="submit" class="formulario-btn btn-segundo">Entrar</button>
+                        <button id="btn_entrar" type="submit" class="formulario-btn btn-segundo">Entrar</button>
                     </form>
                 </div>
             </div>
@@ -70,3 +71,70 @@
 
 </body>
 </html>
+
+<script>
+
+function entrar() {
+    // Previne que o padrão(reset) aconteça.
+    event.preventDefault()
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        console.log(emailVar);
+        console.log(senhaVar);
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            return false;
+        }
+
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: emailVar,
+                senha: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nomeUsuario;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    setTimeout(function () {
+                        window.location.href = "./quiz.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+    
+</script>
