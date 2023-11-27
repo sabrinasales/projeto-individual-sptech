@@ -111,9 +111,9 @@ function entrar() {
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nomeUsuario;
-                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.id_usuario_meuapp = json.id;
+                    sessionStorage.nome_usuario_meuapp = json.nome;
+                    sessionStorage.email_usuario_meuapp = json.email;
 
                     setTimeout(function () {
                         window.location.href = "./quiz.html";

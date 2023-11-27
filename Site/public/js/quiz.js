@@ -9,6 +9,7 @@ const divContainerRespostas = document.querySelector(".respostas-container");
 
 let indexPerguntaAtual = 0
 let totalCorretas = 0;
+let totalIncorretas = 0;
 
 const textoPergunta = document.querySelector(".pergunta");
 
@@ -63,6 +64,7 @@ function selecionarResposta(event) {
         totalCorretas++
         document.body.classList.add("correto")
     } else {
+        totalIncorretas++
         document.body.classList.add("incorreto")
     }
 
@@ -100,9 +102,44 @@ function terminarJogo() {
     divContainerPerguntas.innerHTML = `
     <p class="mensagem-final-usuario">Você acertou ${totalCorretas} de ${totalPerguntasQuiz} questões!</p>
     <span class="resultado-mensagem-final">Resultado: ${mensagemFinal}</span>
-    <button onclick=window.location.reload() class="botao">Tentar novamente!</button>`;
+    <button onclick=window.location.reload() class="botao">Tentar novamente!</button>
+    <button onclick=cadastrarPontuacao() class="botao">Cadastrar pontuação!</button>`;
 }
 
+function cadastrarPontuacao() {
+    event.preventDefault()
+
+    // Pega oq precisar do html
+    var totalCorretasVar = totalCorretas;
+    var totalIncorretasVar = totalIncorretas;
+    var fkUsuario = sessionStorage.getItem("id_usuario_meuapp");
+
+    fetch("dados/cadastrarDados", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            totalCorretas: totalCorretasVar,
+            totalIncorretas: totalIncorretasVar,
+            fkUsuario: fkUsuario
+        })
+    }).then(
+        function (result) {
+            if (result.ok) {
+                alert("Dados cadastraados com sucesso!")
+            } else {
+                result.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        }
+    ).catch(function(erro){
+        console.log(erro);
+    })
+
+    return false;
+}
 
 
 const perguntasQuiz = [
