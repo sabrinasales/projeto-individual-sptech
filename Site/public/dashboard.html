@@ -82,7 +82,9 @@
         var dadosRecebidos = [];
 
 
-        fetch(`/exibirDados/exibirDadosQuiz/${idUsuario}`, { method: "GET", cache: 'no-store' }).then(function (response) {
+        fetch(`/exibirDados/exibirDadosQuiz/${idUsuario}`, { method: "GET", cache: 'no-store' })
+        .then(function (response) {
+
             if (response.ok) {
                 response.json().then(function (dadosQuiz) {
 
@@ -108,7 +110,7 @@
                     };
 
                     const config = {
-                        type: 'doughnut',
+                        type: 'line',
                         data: data,
                         options: {}
                     };
