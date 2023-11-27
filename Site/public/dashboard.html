@@ -38,7 +38,11 @@
                 <div class="container-titulo">Performance do Usuário</div>
                 <canvas id="myChart"></canvas>
             </div>
+            <div class="legenda-grafico" id="legendaGrafico">
+        </div>
 
+        
+            
         </div>
     </main>
 
@@ -73,12 +77,12 @@
     window.onload = obterDadosGrafico()
 
     function obterDadosGrafico() {
-
+        
         var labels = [
             `Acertos`,
             `Erros`,
         ];
-
+        
         var dadosRecebidos = [];
 
 
@@ -87,10 +91,13 @@
 
             if (response.ok) {
                 response.json().then(function (dadosQuiz) {
-
+                    
                     dadosQuiz.forEach(function (dadoQuiz) {
                         dadosRecebidos.push(dadoQuiz.total_pontos_corretos)
                         dadosRecebidos.push(dadoQuiz.total_pontos_incorretos)
+                        legendaGrafico.innerHTML = `Acertos: ${dadosRecebidos[0]}<br>`;
+                        legendaGrafico.innerHTML += `Erros: ${dadosRecebidos[1]}<br>`;
+                        legendaGrafico.innerHTML += `Porcentagem de acertos ${(dadosRecebidos[0] / (Number(dadosRecebidos[0]) + Number(dadosRecebidos[1])) * 100).toFixed(0)}%`;
                     })
 
                     const data = {
@@ -110,7 +117,7 @@
                     };
 
                     const config = {
-                        type: 'line',
+                        type: 'doughnut',
                         data: data,
                         options: {}
                     };
@@ -129,6 +136,7 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
     }
+
 
 </script>
 

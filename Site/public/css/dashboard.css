@@ -72,6 +72,21 @@ main {
     
 }
 
+.legenda-grafico {
+    background-color: #8E5D52;
+    max-height: 150px;
+    max-width: 500px;
+    display: flex;
+    padding: 20px;
+    padding-bottom: 0;
+    align-items: center;
+    justify-self: center;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 10px;
+    box-shadow: 0 0 2px 2px #2F2325;
+}
+
 .botao {
     background-color: antiquewhite;
     width: 100px;
@@ -97,6 +112,10 @@ main {
     width: 500px;
     /* background-color: #fff; */
     padding-bottom: 0;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
 }
 
 .container-titulo {
@@ -104,7 +123,7 @@ main {
     font-family: 'Cormorant Upright', serif;
     color: #2F2325;
     font-weight: bold;
-    padding: 16px;
+    padding: 32px;
     border-bottom: 2px solid #2F2325;
 }
 
