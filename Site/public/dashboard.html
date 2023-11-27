@@ -14,7 +14,7 @@
     <header class="cabecalho">
         <img class="logotipo-cabecalho" src="./images/logo_totoro_ghibli.png" alt="Logo do projeto aqui" width="100px">
         <nav class="cabecalho-menu">
-            <a href="" class="cabecalho-menu-item">Home</a>
+            <a href="./index.html" class="cabecalho-menu-item">Home</a>
             <a href="" class="cabecalho-menu-item">Sobre</a>
             <!-- <a href="" class="cabecalho-menu-item">Blog - Jornal</a> -->
             <a href="./quiz.html" class="cabecalho-menu-item">Quiz</a>
@@ -35,17 +35,10 @@
 
         <div class="container-graficos">
             <div class="graficoUm">
-                <div class="container-titulo">Titulo</div>
-            <canvas id="myChart"></canvas>
-        </div>
+                <div class="container-titulo">Performance do Usuário</div>
+                <canvas id="myChart"></canvas>
+            </div>
 
-        <div class="container-titulo">Titulo</div>
-            <canvas id="myChart2"></canvas>
-        </div>
-
-        <div class="kpis">
-            <div class="nome"></div>
-            <div class="nota"></div>
         </div>
     </main>
 
@@ -75,96 +68,66 @@
 </body>
 
 <script>
-    
-    function obterDadosGrafico(idUsuario) {
-        alterarTitulo(idUsuario)
+    var idUsuario = sessionStorage.id_usuario_meuapp
 
-// if (proximaAtualizacao != undefined) {
-//     clearTimeout(proximaAtualizacao);
-// }
+    window.onload = obterDadosGrafico()
 
-fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
-    if (response.ok) {
-        response.json().then(function (resposta) {
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            resposta.reverse();
+    function obterDadosGrafico() {
 
-            plotarGrafico(resposta, idAquario);
+        var labels = [
+            `Acertos`,
+            `Erros`,
+        ];
 
-        });
-    } else {
-        console.error('Nenhum dado encontrado ou erro na API');
+        var dadosRecebidos = [];
+
+
+        fetch(`/exibirDados/exibirDadosQuiz/${idUsuario}`, { method: "GET", cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (dadosQuiz) {
+
+                    dadosQuiz.forEach(function (dadoQuiz) {
+                        dadosRecebidos.push(dadoQuiz.total_pontos_corretos)
+                        dadosRecebidos.push(dadoQuiz.total_pontos_incorretos)
+                    })
+
+                    const data = {
+                        labels: labels,
+                        datasets: [{
+                            label: 'My first dataset',
+                            backgroundColor: [
+                                'rgb(0, 153, 76)',
+                                'rgb(204, 0, 0)'
+                            ],
+                            borderColor: [
+                                'rgb(0, 153, 76)',
+                                'rgb(204, 0, 0)'
+                            ],
+                            data: dadosRecebidos
+                        }]
+                    };
+
+                    const config = {
+                        type: 'doughnut',
+                        data: data,
+                        options: {}
+                    };
+
+                    const myChart = new Chart(
+                        document.getElementById("myChart"),
+                        config
+                    );
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
     }
-})
-    .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
-}
 
-
-
-
-
-    const labels = [
-        "Janeiro",
-        "Fevereiro",
-        "Março",
-        "Abril",
-        "Maio",
-        "Junho",
-    ];
-
-    const data = {
-        labels: labels,
-        datasets: [{
-            label: 'My first dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45],
-        }]
-    };
-
-    const config = {
-        type: 'line',
-        data: data,
-        options: {}
-    };
-
-    const labels2 = {
-        labels: [
-            'Red',
-            'Blue',
-            'Yellow'
-        ],
-        datasets: [{
-            label: 'My First Dataset',
-            data: [300, 50, 100],
-            backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
-            ],
-            hoverOffset: 4
-        }]
-    };
-
-    const config2 = {
-        type: 'doughnut',
-        data: data,
-    };
-
-</script>
-
-<script>
-    const myChart = new Chart(
-        document.getElementById("myChart"),
-        config
-    );
-
-    const myChart2 = new Chart(
-        document.getElementById("myChart2"),
-        config2
-    );
 </script>
 
 </html>

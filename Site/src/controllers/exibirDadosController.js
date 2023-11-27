@@ -1,11 +1,9 @@
-var dadosModel = require("../models/exibirDadosModel");
+var exibirDadosModel = require("../models/exibirDadosModel");
 
-function exibirDadosQuiz(totalCorretas, totalIncorretas) {
-    var totalCorretas = req.body.totalCorretas
-    var totalIncorretas = req.body.totalIncorretas
-    // var fkUsuario = req.body.fkUsuario
-
-    exibirDadosModel.exibirDadosQuiz(totalCorretas, totalIncorretas)
+function exibirDadosQuiz(req, res) {
+    var idUsuario = req.params.idUsuario
+    
+    exibirDadosModel.exibirDadosQuiz(idUsuario)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -13,7 +11,7 @@ function exibirDadosQuiz(totalCorretas, totalIncorretas) {
                 function (erro) {
                     console.log(erro);
                     console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        "\nHouve um erro ao realizar o select! Erro: ",
                         erro.sqlMessage
                     );
                     res.status(500).json(erro.sqlMessage);

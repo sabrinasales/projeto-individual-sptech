@@ -21,18 +21,22 @@ insert into Usuario values
 
 create table Pontuacao (
 idPontuacao int primary key auto_increment,
-dataHora datetime,
 totalCorretas int,
 totalIncorretas int,
 fkUsuario int,
 foreign key (fkUsuario) references Usuario (idUsuario)
 );
 
-INSERT INTO Pontuacao VALUES (
-	date,
-    totalCorretas,
-    totalIncorretas,
-    fkUsuario
-);
+
 
 SELECT idUsuario, nomeUsuario, email FROM Usuario WHERE email='chris.hamai@admin.com' AND senha ='senha123';
+
+
+SELECT
+  SUM(totalCorretas) AS total_pontos_corretos,
+  SUM(totalIncorretas) AS total_pontos_incorretos
+FROM
+  Pontuacao
+WHERE
+ fkUsuario = 1;
+
